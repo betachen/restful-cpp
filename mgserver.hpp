@@ -164,7 +164,6 @@ private:
     OStream out_;
     Tokeniser<'/'> uri_;
     int state_{0};
-    const char* const servername_{"Http-Metaverse"};
 };
 
 
