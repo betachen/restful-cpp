@@ -1,0 +1,5 @@
+FILE(GLOB_RECURSE e1_main_SOURCES "*.cpp")
+
+ADD_EXECUTABLE(e1-main ${e1_main_SOURCES})
+
+INSTALL(TARGETS e1-main DESTINATION bin)
