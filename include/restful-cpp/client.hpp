@@ -16,9 +16,9 @@
 
 #pragma once
 
-#include "mgbase.hpp"
+#include "restful-cpp/common.hpp"
 
-namespace mgcpp {
+namespace rfcpp {
 namespace client {
 
 typedef std::function<void(const http_message*)> reply_handler;
@@ -65,7 +65,7 @@ protected:
     mg_mgr mgr_;
 };
 
-class MyClient : public MgrCli<MyClient>
+class RFCPP_API MyClient : public MgrCli<MyClient>
 {
 public:
 	explicit MyClient(const std::string& url, int milli, reply_handler&& oreply)
@@ -86,12 +86,12 @@ public:
     void exit(){ exit_ = true; }
     void reset(){ exit_ = false; }
 
-    void get() { 
-        conn_ = mg_connect_http_opt(&mgr_, ev_handler, opts_, url_.c_str(), NULL, NULL); 
-        while (!exit_){
-            poll(milli_);
-        }
-    }
+    void get(){
+	    conn_ = mg_connect_http_opt(&mgr_, ev_handler, opts_, url_.c_str(), NULL, NULL);
+	    while (!exit_){
+	        poll(milli_);
+	    }
+	}
     void post(std::string&& data) { post(data); }
     void post(const std::string& data) { 
         conn_ = mg_connect_http_opt(&mgr_, ev_handler, opts_, url_.c_str(), NULL, data.c_str()); 
@@ -117,5 +117,5 @@ private:
 };
 
 } // client
-} // mgcpp
+} // rfcpp
 

@@ -1,6 +1,6 @@
 #include <iostream>
-#include <mgserver.hpp>
-#include <mgclient.hpp>
+#include <restful-cpp/server.hpp>
+#include <restful-cpp/client.hpp>
 
 using namespace mgcpp::client;
 using namespace mgcpp::server;

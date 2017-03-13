@@ -1,0 +1,13 @@
+
+FILE(GLOB_RECURSE http_client_SOURCES "*.cpp")
+ADD_EXECUTABLE(http-client ${http_client_SOURCES})
+
+#LINK_DIRECTORIES(${LIBRARY_OUTPUT_PATH})
+
+IF(ENABLE_SHARED_LIBS)
+    TARGET_LINK_LIBRARIES(http-client ${LIBRARY_OUTPUT_PATH}/librestful_cpp.so)
+ELSE()
+    TARGET_LINK_LIBRARIES(http-client ${LIBRARY_OUTPUT_PATH}/librestful_cpp.a)
+ENDIF()
+
+INSTALL(TARGETS http-client DESTINATION bin)

@@ -18,11 +18,11 @@
 
 #include <functional>
 #include <experimental/string_view>
-#include "mongoose.h"
+#include "restful-cpp/contrib/mongoose.h"
 
 // ------------------------- definations -----------------------------
 
-#define MGCPP_API __attribute__((visibility("default")))
+#define RFCPP_API __attribute__((visibility("default")))
 
 // ------------------------- string_view -----------------------------
 namespace std {
@@ -35,7 +35,7 @@ constexpr std::string_view operator""_sv(const char* str, std::size_t len) noexc
 }
 
 // ------------------------- utilities -----------------------------
-namespace mgcpp {
+namespace rfcpp {
 
 inline std::string_view operator+(const mg_str& str) noexcept
 {
@@ -119,14 +119,14 @@ struct Session
         std::string     pass;
 };
 
-} // mgcpp
+} // rfcpp
 
 
 // ------------------------- Streambuf -----------------------------
 #include <ostream>
-#include "mongoose.h"
+//#include "restful-cpp/contrib/mongoose.h"
 
-namespace mgcpp {
+namespace rfcpp {
 
 class StreamBuf : public std::streambuf {
 public:
@@ -183,14 +183,14 @@ private:
     size_t lengthAt_{0};
 };
 
-} // mgcpp
+} // rfcpp
 
 
 
 // ------------------------- Tokeniser -----------------------------
 #include <algorithm>
 
-namespace mgcpp {
+namespace rfcpp {
 
 template <char DelimN>
 class Tokeniser {
@@ -230,5 +230,5 @@ private:
     std::string_view::const_iterator i_, j_;
 };
 
-} // mgcpp
+} // rfcpp
 

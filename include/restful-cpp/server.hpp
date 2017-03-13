@@ -16,9 +16,9 @@
 
 #pragma once
 
-#include "mgbase.hpp"
+#include "restful-cpp/common.hpp"
 
-namespace mgcpp {
+namespace rfcpp {
 namespace server {
 
 template <typename DerivedT>
@@ -106,7 +106,7 @@ public:
         memset(&httpoptions_, 0x00, sizeof(httpoptions_));
         httpoptions_.document_root = webroot;
     }
-    ~MyServer() noexcept {};
+    ~MyServer() noexcept {}
 
     // Copy.
     MyServer(const MyServer& rhs) = delete;
@@ -168,6 +168,6 @@ private:
 
 
 } // server
-} // mgcpp
+} // rfcpp
 
 
