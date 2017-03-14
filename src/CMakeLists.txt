@@ -2,7 +2,8 @@
 # For mongoose.c including
 INCLUDE_DIRECTORIES("${PROJECT_SOURCE_DIR}/include/restful-cpp/contrib") 
 
-SET(CMAKE_C_FLAGS "-std=c11 ${COMMON_ARGS}")
+#SET(CMAKE_C_FLAGS "-std=c11 ${COMMON_WARN}")
+SET(CMAKE_C_FLAGS "-std=c99")
 FILE(GLOB_RECURSE restful_cpp_SOURCES "*.cpp")
 
 ADD_LIBRARY(restful_cpp_static STATIC ${restful_cpp_SOURCES})

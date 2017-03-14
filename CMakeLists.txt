@@ -17,16 +17,15 @@ ENDIF()
 # --------------- Compiler Definitions ------------------
 STRING(TOUPPER "${CMAKE_BUILD_TYPE}" CMAKE_BUILD_TYPE)
 
-SET(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-unused-parameter -Wno-unused-variable -Wno-type-limits")
-SET(COMMON_FLAGS "-fvisibility=hidden")
+SET(COMMON_WARN "-Wall -Werror -Wextra -Wno-reorder -Wstrict-aliasing=2 -Wno-unused-parameter -Wno-unused-variable -Wno-type-limits")
+# hidden should be open for mongoose, -_-!
+#SET(COMMON_FLAGS "-fvisibility=hidden")
 SET(COMMON_ARGS "${COMMON_FLAGS} ${COMMON_WARN}")
 
 IF("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    # SET(CMAKE_C_FLAGS "-std=c11 ${COMMON_ARGS}")
-    SET(CMAKE_CXX_FLAGS "-std=c++14 ${COMMON_ARGS} -Wno-reorder")
+    SET(CMAKE_CXX_FLAGS "-std=c++14 ${COMMON_ARGS}")
 ELSEIF("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
-    # SET(CMAKE_C_FLAGS "-std=c11 ${COMMON_ARGS}")
-    SET(CMAKE_CXX_FLAGS "-std=c++14 ${COMMON_ARGS} -Wno-reorder")
+    SET(CMAKE_CXX_FLAGS "-std=c++14 ${COMMON_ARGS}")
 ENDIF()
 SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fPIC")
 

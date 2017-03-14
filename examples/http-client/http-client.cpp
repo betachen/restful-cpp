@@ -9,7 +9,7 @@ void my_impl(const http_message* hm){
 
 int main(int argc, char* argv[])
 {
-    std::string url{"127.0.0.1:8820"};
+    std::string url{"baidu.com:80"};
     // TODO. Link error for mongoo.h in hidden
     rfcpp::client::MyClient req(url, 3000, my_impl);
     req.get();

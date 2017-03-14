@@ -157,8 +157,8 @@ private:
 
 class OStream : public std::ostream {
 public:
-    OStream();
-    ~OStream() noexcept override;
+    OStream(): std::ostream{nullptr} {}
+    ~OStream() noexcept override = default;
   
     // Copy.
     OStream(const OStream& rhs) = delete;
